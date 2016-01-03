@@ -25,9 +25,13 @@ gearman:
   links:
     - gearman_db
   environment:
+    GEARMAN_PORT: 4730 #default 4730
     MYSQL_HOST: gearman_db
-    MYSQL_USER: gearman
+    MYSQL_PORT: 3306 #default 3306
+    MYSQL_USER: gearman #default root
     MYSQL_PASSWORD: gearman
+    MYSQL_DB: gearman #default gearman
+    MYSQL_TABLE: gearman_queue #default gearman_queue
   ports:
     - "4730:4730"
 
