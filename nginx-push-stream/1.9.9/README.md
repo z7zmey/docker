@@ -1,3 +1,10 @@
+# Nginx
+## Modules
+- redis2
+- nginx devel kit
+- set misc nginx
+- nginx push stream
+
 # Quick start
 
 ```

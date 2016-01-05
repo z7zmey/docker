@@ -8,8 +8,16 @@ ENV NGINX_DEVEL_KIT_VERSION 0.2.19
 ENV NGINX_SET_MISC_MODULE_VERSION 0.29
 ENV NGINX_PUSH_STREAM_VERSION 0.5.1
 
-RUN apt-get update \
-    && apt-get install -y ca-certificates libpcre3 libssl-dev libpcre3-dev libgd-dev make wget gcc
+RUN apt-get update && \
+  apt-get install -y \
+    ca-certificates \
+    libpcre3 \
+    libssl-dev \
+    libpcre3-dev \
+    libgd-dev \
+    make \
+    wget \
+    gcc
 
 # get nginx
 RUN wget "http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz" \
