@@ -4,7 +4,7 @@ MAINTAINER Vadim Slizov <z7zmey@gmail.com>
 
 # install
 RUN apt-get update && \
-    apt-get install -y wget
+    apt-get install -y wget curl
 
 RUN wget -q http://packages.couchbase.com/releases/couchbase-sync-gateway/1.1.1/couchbase-sync-gateway-community_1.1.1-10_x86_64.deb -O package.deb && \
     dpkg -i package.deb && \
@@ -18,8 +18,9 @@ RUN apt-get purge wget -y \
 # configure
 ENV PATH /opt/couchbase-sync-gateway/bin:$PATH
 
+COPY ./config.json /config.json
+COPY ./run.sh /run.sh
+
 EXPOSE 4984 4985
 
-COPY ./config.json /config.json
-
-CMD ["sync_gateway", "/config.json"]
+CMD ["/run.sh"]
